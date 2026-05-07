@@ -1,6 +1,6 @@
 package Model;
 
-abstract class DecoratorBevanda implements Bevanda {
+public abstract class DecoratorBevanda implements Bevanda {
     protected Bevanda bevanda;
     public DecoratorBevanda(Bevanda bevanda) {
         this.bevanda = bevanda;

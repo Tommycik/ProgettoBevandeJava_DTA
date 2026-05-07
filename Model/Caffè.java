@@ -1,6 +1,6 @@
 package Model;
 
-class Caffè implements Bevanda {
+public class Caffè implements Bevanda {
     public String getDescrizione() {
         return "Caffè dal brasile";
     }
