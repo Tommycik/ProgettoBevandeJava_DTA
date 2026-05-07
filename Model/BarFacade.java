@@ -40,7 +40,7 @@ public class BarFacade {
         }
     }
 
-    public void stampaStorico() {
-        gestore.visualizzaStorico();
+    public String stampaStorico() {
+        return gestore.visualizzaStorico();
     }
 }
