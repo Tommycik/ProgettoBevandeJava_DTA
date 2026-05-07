@@ -33,6 +33,13 @@ public class MacchinettaView {
         System.out.println("5. Visualizza storico ordini");
         System.out.println("6. Esci");
     }
+    //menu bevande
+    public void visualizzaBevande() {
+        System.out.println("Bevande:");
+        System.out.println("1. Caffe");
+        System.out.println("2. Te");
+        System.out.println("3. Cioccolata Calda");
+    }
     //menu ingredienti extra
     public void visualizzaIngredientiExtra() {
         System.out.println("Ingredienti extra:");
