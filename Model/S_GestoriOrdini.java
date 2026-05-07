@@ -24,27 +24,25 @@ public class S_GestoriOrdini {
     }
 
     // Metodi di gestione ordini:
-    public void confermaOrdine(Bevanda bevanda) {
+    public String confermaOrdine(Bevanda bevanda) {
 
         String ordine = bevanda.getDescrizione()  + " - €" + String.format("%.2f", bevanda.getCosto());
 
         storicoOrdini.add(ordine);
 
-        System.out.println("Ordine confermato!");
+        return "Ordine confermato!";
     }
 
-    public void visualizzaStorico() {
-
-        System.out.println("\n===== STORICO ORDINI =====");
-
+    public String visualizzaStorico() {
+        String listaOrdini = "";
         // Controllo se sono presenti ordini
         if (storicoOrdini.isEmpty()) {
-            System.out.println("Nessun ordine presente.");
-            return;
+            return "Nessun ordine presente.";
         }
 
         for (int i = 0; i < storicoOrdini.size(); i++) {
-            System.out.println((i + 1) + ". " + storicoOrdini.get(i));
+            listaOrdini += (i + 1) + ". " + storicoOrdini.get(i) + "\n";
         }
+        return listaOrdini;
     }
 }
