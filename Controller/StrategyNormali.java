@@ -1,6 +1,6 @@
 package Controller;
 import Model.Bevanda;
-public class StrategyNormali implements StrategyConferma {
+public class StrategyNormali implements StrategySconti {
 
     @Override
     public double processaSconti(Bevanda bevanda) {
