@@ -8,8 +8,8 @@ public class BarFacade {
     // --- 1. Creazione bevanda ---
     public Bevanda creaBevandaBase(int scelta) {
         return switch (scelta) {
-            case 1 -> new Caffè();
-            case 2 -> new Tè();
+            case 1 -> new Caffe();
+            case 2 -> new Te();
             case 3 -> new CioccolataCalda();
             default -> null;
         };
