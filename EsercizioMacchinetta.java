@@ -1,7 +1,7 @@
 
 import Controller.MacchinettaController;
 import java.util.Scanner;
-import Controller.StrategySoldati;
+import Controller.StrategyStudente;
 import Controller.StrategyNormali;
 public class EsercizioMacchinetta {
     public static void main(String[] args) {
@@ -33,11 +33,11 @@ public class EsercizioMacchinetta {
                 case 4 :
                     //conferma ordine
                     //Sei un soldato?
-                    System.out.println("Sei un soldato?(S/N)");
+                    System.out.println("Sei uno studente?(S/N)");
                     String sceltaSoldato = stringScanner.next();
                     if (sceltaSoldato.equalsIgnoreCase("S")) {
                         //se è un soldato
-                        macchinetta.setStrategy(new StrategySoldati());
+                        macchinetta.setStrategy(new StrategyStudente());
                     }else {
                         //se è un normalista
                         macchinetta.setStrategy(new StrategyNormali());
