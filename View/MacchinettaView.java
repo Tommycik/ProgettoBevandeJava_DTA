@@ -18,6 +18,10 @@ public class MacchinettaView {
         System.out.println("Ordine confermato");
         stampaBevanda(bevanda);
     }
+    //visualizza messaggio
+    public void visualizzaMessaggio(String messaggio) {
+        System.out.println(messaggio);
+    }
     //bevanda corrente
     public void visualizzaBevandaCorrente(Bevanda bevanda) {
         System.out.println("Bevanda corrente");
