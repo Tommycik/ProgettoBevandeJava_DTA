@@ -5,6 +5,8 @@ public abstract class DecoratorBevanda implements Bevanda {
     public DecoratorBevanda(Bevanda bevanda) {
         this.bevanda = bevanda;
     }
+    //metodo per applicare la decorazione
+    public abstract Bevanda applica(Bevanda bevanda);
     @Override
     public String getDescrizione() {
         return bevanda.getDescrizione();
@@ -13,5 +15,4 @@ public abstract class DecoratorBevanda implements Bevanda {
     public double getCosto() {
         return bevanda.getCosto();
     }   
-    
 }
