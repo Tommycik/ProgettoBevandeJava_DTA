@@ -26,7 +26,7 @@ public class S_GestoriOrdini {
     // Metodi di gestione ordini:
     public String confermaOrdine(Bevanda bevanda) {
 
-        String ordine = bevanda.getDescrizione()  + " - €" + String.format("%.2f", bevanda.getCosto());
+        String ordine = bevanda.getDescrizione()  + " - euro" + String.format("%.2f", bevanda.getCosto());
 
         storicoOrdini.add(ordine);
 
