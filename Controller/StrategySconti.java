@@ -1,5 +1,5 @@
 package Controller;
 import Model.Bevanda;
-interface StrategyConferma {
+interface StrategySconti {
     public double processaSconti(Bevanda bevanda);
 }

@@ -9,12 +9,15 @@ public class MacchinettaController {
     private MacchinettaView view;
 
     private Bevanda bevandaCorrente;
-
+    private StrategySconti strategy;
     public MacchinettaController() {
         this.facade = new BarFacade();
         this.view = new MacchinettaView();
     }
-
+    //Strategy setter
+    public void setStrategy(StrategySconti strategy) {
+        this.strategy = strategy;
+    }
     // MENU
     public void visualizzaMenu() {
         view.visualizzaMenu();
@@ -98,7 +101,8 @@ public class MacchinettaController {
         facade.archiviaOrdine(bevandaCorrente);
 
         view.confermaOrdine(bevandaCorrente);
-
+        double prezzoFinale = strategy.processaSconti(bevandaCorrente);
+        view.visualizzaMessaggio("Prezzo finale con evantueli sconti: " + prezzoFinale);
         bevandaCorrente = null;
     }
 
