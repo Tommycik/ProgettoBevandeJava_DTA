@@ -25,12 +25,22 @@ public class MacchinettaView {
     }
     //Stampa menu azioni
     public void visualizzaMenu() {
-        System.out.println("Menu azioni:");
+        System.out.println("Cosa vuoi fare?:");
         System.out.println("1. Crea nuova bevanda");
-        System.out.println("2. Aggiungi ingrediente ");
-        System.out.println("3. Conferma ordine");
+        System.out.println("2. Aggiungi ingrediente extra");
         System.out.println("3. Visualizza bevanda corrente");
-        System.out.println("4. Esci");
+        System.out.println("4. Conferma ordine");
+        System.out.println("5. Visualizza storico ordini");
+        System.out.println("6. Esci");
+    }
+    //menu ingredienti extra
+    public void visualizzaIngredientiExtra() {
+        System.out.println("Ingredienti extra:");
+        System.out.println("1. Latte");
+        System.out.println("2. Cannella");
+        System.out.println("3. Cacao");
+        System.out.println("4. Panna");
+        System.out.println("5. Zucchero");
     }
 
 }
