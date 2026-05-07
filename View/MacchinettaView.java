@@ -2,21 +2,16 @@ package View;
 import Model.Bevanda;
 
 public class MacchinettaView {
+    //visualizza storico ordini
     public void visualizzaStorico(String storicoOrdini) {
         System.out.println("Storico ordini: ");
         System.out.println(storicoOrdini);
     }
     
-    
-    public void visualizzaCosto() {
-        System.out.println("MacchinettaView: visualizzaCosto");
-    }
-    
-    public void visualizzaDescrizione() {
-        System.out.println("MacchinettaView: visualizzaDescrizione");
-    }
-    
-    public void visualizzaStorico() {
-        System.out.println("MacchinettaView: visualizzaStorico");
+    //visualizza descrizione bevanda
+    public void StampaBevanda(Bevanda bevanda) {
+        System.out.println("Bevanda scelta:");
+        System.out.println(bevanda.getDescrizione());
+        System.out.println(bevanda.getCosto());
     }
 }
