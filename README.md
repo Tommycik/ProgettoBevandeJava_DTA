@@ -4,8 +4,8 @@
 
 ## 📌 Descrizione del progetto
 
-Questo progetto simula un sistema di ordinazione per una caffetteria.
-L’utente può creare una bevanda base e arricchirla con ingredienti extra dinamici (decorazioni), fino a ottenere un ordine finale con costo e descrizione personalizzati.
+Questo progetto simula un sistema di ordinazione bevande (distributore).
+L’utente può selezionare una bevanda base e arricchirla con ingredienti extra dinamici (decorazioni), fino a ottenere un ordine finale con costo e descrizione personalizzati 
 
 Il sistema è strutturato seguendo diversi **Design Pattern** per garantire modularità, estendibilità e separazione delle responsabilità.
 
