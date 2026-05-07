@@ -11,5 +11,10 @@ public class DecoratorPanna extends DecoratorBevanda {
     @Override
     public double getCosto() {
         return bevanda.getCosto() + 0.4;
-    }   
+    }
+    // metodo per applicare la decorazione
+    @Override
+    public Bevanda applica(Bevanda bevanda) {
+        return new DecoratorPanna(bevanda);
+    }
 }
