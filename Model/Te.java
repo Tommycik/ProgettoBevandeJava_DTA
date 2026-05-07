@@ -1,11 +1,11 @@
 package Model;
 
-public class Caffè implements Bevanda {
+public class Te implements Bevanda {
     public String getDescrizione() {
-        return "Caffè dal brasile";
+        return "Te nero";
     }
     public double getCosto() {
-        return 1.5;
+        return 0.8;
     }
     
 }
