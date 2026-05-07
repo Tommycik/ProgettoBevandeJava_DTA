@@ -15,7 +15,7 @@ public class BarFacade {
         };
     }
 
-    // --- 2.Decorazoine bevanda e ne restituisce una decorata ---
+    // --- 2.Decorazione bevanda e ne restituisce una decorata ---
     public Bevanda aggiungiExtra(Bevanda bevandaDaDecorare, int sceltaExtra) {
         if (bevandaDaDecorare == null) return null;
 
