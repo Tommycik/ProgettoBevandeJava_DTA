@@ -111,4 +111,8 @@ public class MacchinettaController {
     public Bevanda getBevandaCorrente() {
         return bevandaCorrente;
     }
+
+    public void visualizzaBevandaCorrente(){
+        view.visualizzaBevandaCorrente(getBevandaCorrente());
+    }
 }
