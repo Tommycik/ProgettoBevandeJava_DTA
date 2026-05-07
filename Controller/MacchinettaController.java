@@ -6,7 +6,7 @@ import View.MacchinettaView;
 /**
  * Controller del sistema Macchinetta.
  * Si occupa di gestire il flusso dell'applicazione:
- * - riceve input (dal Main)
+ * - riceve input dall'utente (dal Main)
  * - chiama il Model (Facade + Decorator + Singleton)
  * - aggiorna la View
  */
@@ -57,7 +57,6 @@ public class MacchinettaController {
     }
 
     // BEVANDA BASE
-
     // Crea una nuova bevanda base tramite Facade in base alla scelta utente
     public void creaNuovaBevanda(int scelta) {
 

@@ -3,17 +3,22 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 // Singleton gestore ordini
+/**
+ * Singleton responsabile della gestione degli ordini.
+ * Garantisce che esista UNA SOLA istanza della classe
+ * durante tutta l'esecuzione del programma.
+ */
 public class S_GestoriOrdini {
-    // Istanza unica
+    // Istanza unica della classe (Singleton)
     private static S_GestoriOrdini istanza;
-
+    // Lista che contiene lo storico degli ordini effettuati
     private List<String> storicoOrdini;
 
-    // Costruttore
+    // Costruttore privato
     private S_GestoriOrdini() {
         storicoOrdini = new ArrayList<>();
     }
-    // Metodo per ottenere istanza
+    // Metodo per ottenere l'unica istanza di accesso globale. Se non esiste, viene creata
     public static S_GestoriOrdini getIstanza() {
 
         if (istanza == null) {
@@ -24,6 +29,13 @@ public class S_GestoriOrdini {
     }
 
     // Metodi di gestione ordini:
+
+    /**
+     * Conferma un ordine e lo salva nello storico
+     *
+     * bevanda bevanda ordinata
+     * messaggio di conferma ordine
+     */
     public String confermaOrdine(Bevanda bevanda) {
 
         String ordine = bevanda.getDescrizione()  + " - euro " + String.format("%.2f", bevanda.getCosto());
@@ -33,6 +45,10 @@ public class S_GestoriOrdini {
         return "Ordine confermato!";
     }
     // Visualizza storico ordini
+    /**
+     * Restituisce la lista degli ordini in formato stringa
+     * storico ordini oppure messaggio vuoto
+     */
     public String visualizzaStorico() {
         String listaOrdini = "";
         // Controllo se sono presenti ordini
