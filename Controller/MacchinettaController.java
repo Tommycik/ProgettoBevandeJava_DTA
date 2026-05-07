@@ -3,38 +3,62 @@ package Controller;
 import Model.*;
 import View.MacchinettaView;
 
+/**
+ * Controller del sistema Macchinetta.
+ * Si occupa di gestire il flusso dell'applicazione:
+ * - riceve input (dal Main)
+ * - chiama il Model (Facade + Decorator + Singleton)
+ * - aggiorna la View
+ */
+
 public class MacchinettaController {
 
+    // Facade: semplifica l'accesso alla logica del Model
     private BarFacade facade;
+    // View: responsabile della stampa a video
     private MacchinettaView view;
-
+    // Bevanda attualmente in costruzione (stato corrente)
     private Bevanda bevandaCorrente;
+    // Strategy opzionale per applicare sconti o logiche aggiuntive
     private StrategySconti strategy;
 
+    /**
+     * Costruttore:
+     * inizializza Facade e View
+     */
     public MacchinettaController() {
         this.facade = new BarFacade();
         this.view = new MacchinettaView();
     }
 
+    /**
+     * Setter per la Strategy (Pattern Strategy)
+     * Permette di cambiare dinamicamente la logica di sconto
+     */
     // Strategy setter
     public void setStrategy(StrategySconti strategy) {
         this.strategy = strategy;
     }
 
     // MENU
+    // Mostra il menu principale all'utente
     public void visualizzaMenu() {
         view.visualizzaMenu();
     }
 
+    // Mostra le bevande disponibili
     public void visualizzaBevande() {
         view.visualizzaBevande();
     }
 
+    // Mostra gli ingredienti extra disponibili
     public void visualizzaIngredientiExtra() {
         view.visualizzaIngredientiExtra();
     }
 
-    // BEVANDA
+    // BEVANDA BASE
+
+    // Crea una nuova bevanda base tramite Facade in base alla scelta utente
     public void creaNuovaBevanda(int scelta) {
 
         switch (scelta) {
@@ -55,14 +79,20 @@ public class MacchinettaController {
         view.visualizzaBevandaCorrente(bevandaCorrente);
     }
 
-    // EXTRA
+    // EXTRA (DECORATOR)
+    /**
+     * Aggiunge un ingrediente extra alla bevanda corrente
+     * usando il pattern Decorator. Parametri dell'utente: ingrediente selezionato
+     */
     public void aggiungiIngredienteExtra(int scelta) {
 
+        // Controllo stato
         if (bevandaCorrente == null) {
             System.out.println("Devi prima creare una bevanda!");
             return;
         }
 
+        // Applicazione Decorator dinamico
         switch (scelta) {
 
             case 1:
@@ -90,10 +120,17 @@ public class MacchinettaController {
                 return;
         }
 
+        // Aggiorna la vista
         view.visualizzaBevandaCorrente(bevandaCorrente);
     }
 
-    // ORDINE
+    // ORDINE (SINGLETON + STRATEGY)
+    /**
+     * Conferma l'ordine corrente:
+     * - salva tramite Singleton
+     * - stampa conferma
+     * - applica eventuale Strategy (sconti)
+     */
     public void confermaOrdine() {
 
         if (bevandaCorrente == null) {
@@ -101,27 +138,37 @@ public class MacchinettaController {
             return;
         }
 
+        // Salvataggio ordine tramite Singleton
         facade.archiviaOrdine(bevandaCorrente);
-
+        // Conferma visuale ordine
         view.confermaOrdine(bevandaCorrente);
+        // Applicazione Strategy opzionale (es: sconti)
         if (strategy != null) {
             double prezzoFinale = strategy.processaSconti(bevandaCorrente);
             view.visualizzaMessaggio("Prezzo finale con eventuali sconti: " + prezzoFinale);
         }
-        
+        // Reset bevanda per nuovo ordine
         bevandaCorrente = null;
     }
 
     // STORICO
+    /**
+     * Visualizza lo storico degli ordini
+     * recuperandolo dal Facade
+     */
     public void visualizzaStorico() {
         view.visualizzaStorico(facade.stampaStorico());
     }
 
     // GETTER (opzionale debug)
+    /**
+     * Restituisce la bevanda corrente (utile per debug o test)
+     */
     public Bevanda getBevandaCorrente() {
         return bevandaCorrente;
     }
 
+    // Mostra la bevanda corrente tramite View
     public void visualizzaBevandaCorrente() {
         view.visualizzaBevandaCorrente(getBevandaCorrente());
     }
