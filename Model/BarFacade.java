@@ -4,7 +4,12 @@ public class BarFacade {
 
     // Riferimento al Singleton per la gestione 
     private S_GestoriOrdini gestore = S_GestoriOrdini.getIstanza();
+    private DecoratorBevanda strategy;
 
+    //setter strategy
+    public void setStrategy(DecoratorBevanda strategy) {
+        this.strategy = strategy;
+    }
     // --- 1. Creazione bevanda (Semplificate) ---
     public Bevanda creaCaffe() {
         return new Caffe();
@@ -17,11 +22,13 @@ public class BarFacade {
     public Bevanda creaCioccolata() {
         return new CioccolataCalda();
     }
-
     // --- 2. Decorazione con Pattern Strategy ---
-    public Bevanda aggiungiIngrediente(Bevanda bevanda, DecoratorStrategy strategy) {
+    public Bevanda aggiungiIngrediente(Bevanda bevanda) {
         if (bevanda == null) {
             return null;
+        }
+        if(strategy == null) {
+            return bevanda;
         }
         return strategy.applica(bevanda);
     }

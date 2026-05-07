@@ -12,5 +12,8 @@ public class DecoratorCannella extends DecoratorBevanda {
     public double getCosto() {
         return bevanda.getCosto() + 0.3;
     }
-    
+    @Override
+    public Bevanda applica(Bevanda bevanda) {
+        return new DecoratorCannella(bevanda);
+    }
 }
