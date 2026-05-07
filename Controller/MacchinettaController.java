@@ -106,7 +106,7 @@ public class MacchinettaController {
         view.confermaOrdine(bevandaCorrente);
         if (strategy != null) {
             double prezzoFinale = strategy.processaSconti(bevandaCorrente);
-            view.visualizzaMessaggio("Prezzo finale con evantueli sconti: " + prezzoFinale);
+            view.visualizzaMessaggio("Prezzo finale con eventuali sconti: " + prezzoFinale);
         }
         
         bevandaCorrente = null;
