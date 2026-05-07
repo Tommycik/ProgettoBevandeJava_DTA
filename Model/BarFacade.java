@@ -2,34 +2,31 @@ package Model;
 
 public class BarFacade {
 
-   // Riferimento al Singleton per la gestione 
+    // Riferimento al Singleton per la gestione 
     private S_GestoriOrdini gestore = S_GestoriOrdini.getIstanza();
 
-    // --- 1. Creazione bevanda ---
-    public Bevanda creaBevandaBase(int scelta) {
-        return switch (scelta) {
-            case 1 -> new Caffe();
-            case 2 -> new Te();
-            case 3 -> new CioccolataCalda();
-            default -> null;
-        };
+    // --- 1. Creazione bevanda (Semplificate) ---
+    public Bevanda creaCaffe() {
+        return new Caffe();
     }
 
-    // --- 2.Decorazoine bevanda e ne restituisce una decorata ---
-    public Bevanda aggiungiExtra(Bevanda bevandaDaDecorare, int sceltaExtra) {
-        if (bevandaDaDecorare == null) return null;
-
-        return switch (sceltaExtra) {
-            case 1 -> new DecoratorLatte(bevandaDaDecorare);
-            case 2 -> new DecoratorZucchero(bevandaDaDecorare);
-            case 3 -> new DecoratorCacao(bevandaDaDecorare);
-            case 4 -> new DecoratorPanna(bevandaDaDecorare);
-            case 5 -> new DecoratorCannella(bevandaDaDecorare);
-            default -> bevandaDaDecorare; // Se la scelta è errata, restituisce l'originale
-        };
+    public Bevanda creaTe() {
+        return new Te();
     }
 
-    // --- 3. interfaccia verso il singleton ---
+    public Bevanda creaCioccolata() {
+        return new CioccolataCalda();
+    }
+
+    // --- 2. Decorazione con Pattern Strategy ---
+    public Bevanda aggiungiIngrediente(Bevanda bevanda, DecoratorStrategy strategy) {
+        if (bevanda == null) {
+            return null;
+        }
+        return strategy.applica(bevanda);
+    }
+
+    // --- 3. Interfaccia verso il singleton ---
     public void archiviaOrdine(Bevanda bevandaFinale) {
         if (bevandaFinale != null) {
             gestore.confermaOrdine(bevandaFinale);
@@ -39,5 +36,4 @@ public class BarFacade {
     public void stampaStorico() {
         gestore.visualizzaStorico();
     }
-       
 }
