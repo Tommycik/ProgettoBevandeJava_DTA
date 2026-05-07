@@ -1,9 +1,11 @@
 package Model;
 
 public class DecoratorLatte extends DecoratorBevanda {
+    //costruttore
     public DecoratorLatte(Bevanda bevanda) {
         super(bevanda);
     }
+    //metodo override
     @Override
     public String getDescrizione() {
         return bevanda.getDescrizione() + ", con Latte";

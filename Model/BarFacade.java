@@ -4,6 +4,7 @@ public class BarFacade {
 
     // Riferimento al Singleton per la gestione 
     private S_GestoriOrdini gestore = S_GestoriOrdini.getIstanza();
+    //strategy
     private DecoratorBevanda strategy;
 
     //setter strategy
@@ -39,7 +40,7 @@ public class BarFacade {
             gestore.confermaOrdine(bevandaFinale);
         }
     }
-
+    // stampa storico
     public String stampaStorico() {
         return gestore.visualizzaStorico();
     }
