@@ -1,5 +1,6 @@
 package Controller;
 import Model.Bevanda;
+//Strategy per persone normali
 public class StrategyNormali implements StrategySconti {
 
     @Override

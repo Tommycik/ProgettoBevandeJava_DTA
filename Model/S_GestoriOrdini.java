@@ -2,7 +2,7 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.List;
-
+// Singleton gestore ordini
 public class S_GestoriOrdini {
     // Istanza unica
     private static S_GestoriOrdini istanza;
@@ -13,7 +13,7 @@ public class S_GestoriOrdini {
     private S_GestoriOrdini() {
         storicoOrdini = new ArrayList<>();
     }
-
+    // Metodo per ottenere istanza
     public static S_GestoriOrdini getIstanza() {
 
         if (istanza == null) {
@@ -32,7 +32,7 @@ public class S_GestoriOrdini {
 
         return "Ordine confermato!";
     }
-
+    // Visualizza storico ordini
     public String visualizzaStorico() {
         String listaOrdini = "";
         // Controllo se sono presenti ordini
